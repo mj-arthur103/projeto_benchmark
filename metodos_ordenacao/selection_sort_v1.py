@@ -7,3 +7,8 @@ def selection_sort(arr):
                 min_index = j
         arr[i], arr[min_index] = arr[min_index], arr[i]
     return arr
+
+tamanho=input()
+valores=input()
+lista=[int(x) for x in valores.split()]
+print("Lista ordenada: ", heap_sort(lista))
