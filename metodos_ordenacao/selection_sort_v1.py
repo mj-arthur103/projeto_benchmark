@@ -11,4 +11,4 @@ def selection_sort(arr):
 tamanho=input()
 valores=input()
 lista=[int(x) for x in valores.split()]
-print("Lista ordenada: ", heap_sort(lista))
+print("Lista ordenada: ", selection_sort(lista))
