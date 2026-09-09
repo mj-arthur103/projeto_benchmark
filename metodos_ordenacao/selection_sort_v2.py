@@ -1,7 +1,7 @@
 import csv
 import os
 
-pasta_csv= r'C:\Users\arthurfreire\Desktop\estudo_python\Mini_Curso_qgiz\Qgiz_projeto'
+pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
 
 def heapify(arr, n, i):
     largest = i  
@@ -29,18 +29,18 @@ def heap_sort(arr):
 
     return arr
 
-def ler_csv(pasta_csv):
-    lista= []
+def processo_ordenação_csv(pasta_csv):
     for pasta_atual, subpastas, arquivos in os.walk(pasta_csv):
         for arquivo in arquivos:
             if arquivo.endswith('.csv'):
                 caminho_arquivo = os.path.join(pasta_atual, arquivo)
+                dados_entrada= []
                 with open(caminho_arquivo, 'r') as arquivo_csv:
                     leitor_csv = csv.reader(arquivo_csv, delimiter=',')
                     for linha in leitor_csv:
-                        lista.extend([int(x) for x in linha])
-    return lista
+                        dados_entrada.extend([int(x) for x in linha])
+                lista_ordenada = heap_sort(dados_entrada)
+                print(f"Utilizado o arquivo: {arquivo}")
+    return lista_ordenada
 
-dados_entrada = ler_csv(pasta_csv)
-lista_ordenada = heap_sort(dados_entrada)
-print("Lista ordenada: ", lista_ordenada)
+print("Lista ordenada: ", processo_ordenação_csv(pasta_csv))
