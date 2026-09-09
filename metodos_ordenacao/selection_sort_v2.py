@@ -1,37 +1,39 @@
-def heapify(arr, n, i):
-    largest = i  # Initialize largest as root
-    left = 2 * i + 1  # left child index
-    right = 2 * i + 2  # right child index
+import csv
+import os
 
-    # If left child is larger than root
+def heapify(arr, n, i):
+    largest = i  
+    left = 2 * i + 1  
+    right = 2 * i + 2  
+
     if left < n and arr[left] > arr[largest]:
         largest = left
-
-    # If right child is larger than largest so far
     if right < n and arr[right] > arr[largest]:
         largest = right
-
-    # If largest is not root
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+        arr[i], arr[largest] = arr[largest], arr[i]  
 
-        # Recursively heapify the affected sub-tree
+        
         heapify(arr, n, largest)
 def heap_sort(arr):
     n = len(arr)
 
-    # Build a maxheap
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
 
-    # One by one extract elements from heap
     for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]  # swap
+        arr[i], arr[0] = arr[0], arr[i]  
         heapify(arr, i, 0)
 
     return arr
 
-tamanho=input()
-valores=input()
-lista=[int(x) for x in valores.split()]
+pasta_csv= "entrada.csv"
+lista= []
+
+
+with open(pasta_csv, 'r') as arquivo_csv:
+    leitor_csv = csv.reader(arquivo_csv, delimiter=',')
+    for linha in leitor_csv:
+        lista.append([int(x) for x in linha])
+
 print("Lista ordenada: ", heap_sort(lista))

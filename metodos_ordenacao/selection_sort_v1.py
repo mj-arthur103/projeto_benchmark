@@ -1,3 +1,8 @@
+import csv
+import os
+
+
+
 def selection_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -8,7 +13,13 @@ def selection_sort(arr):
         arr[i], arr[min_index] = arr[min_index], arr[i]
     return arr
 
-tamanho=input()
-valores=input()
-lista=[int(x) for x in valores.split()]
+pasta_csv= "entrada.csv"
+lista= []
+
+
+with open(pasta_csv, 'r') as arquivo_csv:
+    leitor_csv = csv.reader(arquivo_csv, delimiter=',')
+    for linha in leitor_csv:
+        lista.append([int(x) for x in linha])
+
 print("Lista ordenada: ", selection_sort(lista))

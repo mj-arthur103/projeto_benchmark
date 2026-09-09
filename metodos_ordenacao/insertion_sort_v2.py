@@ -1,4 +1,6 @@
 import bisect
+import csv
+import os
 
 #Insertion V2, utilizamos o bisect para fazer uma busca na base binária, para alterar a posição, caso necessário
 def insertion_sort(arr):
@@ -9,7 +11,13 @@ def insertion_sort(arr):
         arr.insert(pos, arr.pop(i)) #Remove o elemento na posição atual e adiciona na posição correta
     return arr
 
-tamanho= input()
-valores= input()
-lista=[int(x) for x in valores.split()]
+pasta_csv= "entrada.csv"
+lista= []
+
+
+with open(pasta_csv, 'r') as arquivo_csv:
+    leitor_csv = csv.reader(arquivo_csv, delimiter=',')
+    for linha in leitor_csv:
+        lista.append([int(x) for x in linha])
+
 print("Lista ordenada: ", insertion_sort(lista))

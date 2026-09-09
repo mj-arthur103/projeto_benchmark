@@ -1,3 +1,8 @@
+import csv
+import os
+
+
+
 def bubble_sort(elemento):
     n = len(elemento)
     for i in range(n):
@@ -10,7 +15,13 @@ def bubble_sort(elemento):
             break
     return elemento
 
-tamanho= input()
-valores= input()
-lista=[int(x) for x in valores.split()]
+pasta_csv= "entrada.csv"
+lista= []
+
+
+with open(pasta_csv, 'r') as arquivo_csv:
+    leitor_csv = csv.reader(arquivo_csv, delimiter=',')
+    for linha in leitor_csv:
+        lista.append([int(x) for x in linha])
+
 print("Lista ordenada: ", bubble_sort(lista))
