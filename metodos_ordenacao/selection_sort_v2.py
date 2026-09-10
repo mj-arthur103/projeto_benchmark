@@ -30,6 +30,7 @@ def heap_sort(arr):
     return arr
 
 def processo_ordenação_csv(pasta_csv):
+    resultado_ordenacao = []
     for pasta_atual, subpastas, arquivos in os.walk(pasta_csv):
         for arquivo in arquivos:
             if arquivo.endswith('.csv'):
@@ -41,6 +42,6 @@ def processo_ordenação_csv(pasta_csv):
                         dados_entrada.extend([int(x) for x in linha])
                 lista_ordenada = heap_sort(dados_entrada)
                 print(f"Utilizado o arquivo: {arquivo}")
-    return lista_ordenada
+                print(f"Lista ordenada: {lista_ordenada}")
 
-print("Lista ordenada: ", processo_ordenação_csv(pasta_csv))
+processo_ordenação_csv(pasta_csv)
