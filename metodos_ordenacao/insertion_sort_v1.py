@@ -23,7 +23,7 @@ def processo_ordenação_csv(pasta_csv):
                     leitor_csv = csv.reader(arquivo_csv, delimiter=',')
                     for linha in leitor_csv:
                         dados_entrada.extend([int(x) for x in linha])
-                lista_ordenada = heap_sort(dados_entrada)
+                lista_ordenada = insertion_sort(dados_entrada)
                 print(f"Utilizado o arquivo: {arquivo}")
     return lista_ordenada
 
