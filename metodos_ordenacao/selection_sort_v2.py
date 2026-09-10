@@ -30,8 +30,7 @@ def heap_sort(arr):
     return arr
 
 def processo_ordenação_csv(pasta_csv):
-    resultado_ordenacao = []
-    for pasta_atual, subpastas, arquivos in os.walk(pasta_csv):
+    for pasta_atual, _, arquivos in os.walk(pasta_csv):
         for arquivo in arquivos:
             if arquivo.endswith('.csv'):
                 caminho_arquivo = os.path.join(pasta_atual, arquivo)
