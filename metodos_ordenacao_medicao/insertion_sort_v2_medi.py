@@ -1,6 +1,8 @@
-import bisect
+import bisect #Biblioteca para realizar a busca binária para encontrar a posição correta do elemento a ser inserido
 import csv
 import os
+import time
+import psutil
 
 pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
 
@@ -23,8 +25,22 @@ def processo_ordenação_csv(pasta_csv):
                     leitor_csv = csv.reader(arquivo_csv, delimiter=',')
                     for linha in leitor_csv:
                         dados_entrada.extend([int(x) for x in linha])
+                tempo_duration_inicio = time.perf_counter()#Inicia a contagem do tempo de duração
+                tempo_cpu_inicio = psutil.cpu_times() #Inicia a contagem do tempo de CPU
+
                 lista_ordenada = insertion_sort(dados_entrada)
+
+                tempo_duration_fim = time.perf_counter()#Finaliza a contagem do tempo de duração
+                tempo_cpu_fim = psutil.cpu_times()#Finaliza a contagem do tempo de CPU
+
+                duration_time = tempo_duration_fim - tempo_duration_inicio #Calcula o tempo de duração real
+                user_time = tempo_cpu_fim.user - tempo_cpu_inicio.user #Calcula o tempo de CPU gasto em modo usuário
+                system_time = tempo_cpu_fim.system - tempo_cpu_inicio.system #Calcula o tempo de CPU gasto em modo sistema
+
                 print(f"Utilizado o arquivo: {arquivo}")
                 print(f"Lista ordenada: {lista_ordenada}")
-
+                print(f"Tempo de duração: {duration_time:.6f} segundos")
+                print(f"Tempo do usuário: {user_time:.6f} segundos")
+                print(f"Tempo do sistema: {system_time:.6f} segundos")
+                print(f"Tempo de CPU: {(user_time + system_time):.6f} segundos\n")
 processo_ordenação_csv(pasta_csv)
