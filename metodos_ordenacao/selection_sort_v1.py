@@ -1,7 +1,7 @@
 import csv
 import os
 
-pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
+pasta_csv=r'..\dados_entrada_gerados'
 
 def selection_sort(arr):
     n = len(arr)

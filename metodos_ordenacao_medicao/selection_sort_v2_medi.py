@@ -4,7 +4,7 @@ import time
 import psutil #Biblioteca para medir o tempo de CPU para rodar o algoritmo de ordenação
 
 
-pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
+pasta_csv=r'..\dados_entrada_gerados'
 
 def heapify(arr, n, i):
     largest = i  

@@ -2,7 +2,7 @@ import bisect
 import csv
 import os
 
-pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
+pasta_csv=r'..\dados_entrada_gerados'
 
 #Insertion V2, utilizamos o bisect para fazer uma busca na base binária, para alterar a posição, caso necessário
 def insertion_sort(arr):

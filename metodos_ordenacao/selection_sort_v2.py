@@ -1,7 +1,7 @@
 import csv
 import os
 
-pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
+pasta_csv=r'..\dados_entrada_gerados'
 
 def heapify(arr, n, i):
     largest = i  
@@ -31,6 +31,7 @@ def heap_sort(arr):
 
 def processo_ordenação_csv(pasta_csv):
     for pasta_atual, _, arquivos in os.walk(pasta_csv):
+        print(pasta_atual, arquivos, pasta_csv)
         for arquivo in arquivos:
             if arquivo.endswith('.csv'):
                 caminho_arquivo = os.path.join(pasta_atual, arquivo)
@@ -42,5 +43,5 @@ def processo_ordenação_csv(pasta_csv):
                 lista_ordenada = heap_sort(dados_entrada)
                 print(f"Utilizado o arquivo: {arquivo}")
                 print(f"Lista ordenada: {lista_ordenada}")
-
 processo_ordenação_csv(pasta_csv)
+

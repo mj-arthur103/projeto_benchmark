@@ -3,9 +3,8 @@ import os
 import time
 import psutil
 
-from metodos_ordenacao_medicao.selection_sort_v2_medi import heap_sort
 
-pasta_csv=r'C:\Users\arthurfreire\Desktop\dados_entrada_teste'
+pasta_csv=r'..\dados_entrada_gerados'
 
 def insertion_sort(arr):
     for i in range(1, len(arr)):
