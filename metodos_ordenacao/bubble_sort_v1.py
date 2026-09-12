@@ -1,7 +1,7 @@
 import csv
 import os
 
-diretorio_script = os.path.dirname(os.path.abspath(__file__)) #Indetifica o diretório para referenciar o caminho relativo do arquivo CSV ("Provavel solução para não está entrando no os.walk()")
+diretorio_script = os.path.dirname(os.path.abspath(__file__)) #Indetifica o diretório para referenciar o caminho relativo do arquivo CSV ("Provavel solução para não está entrando no os.walk()")/ r'dados_entrada_gerados'
 pasta_csv = os.path.join(diretorio_script, '..', 'dados_entrada_gerados')
 
 def bubble_sort(elemento):
