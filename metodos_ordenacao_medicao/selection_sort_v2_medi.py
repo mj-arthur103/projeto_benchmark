@@ -4,7 +4,9 @@ import time
 import psutil #Biblioteca para medir o tempo de CPU para rodar o algoritmo de ordenação
 
 
-pasta_csv=r'..\dados_entrada_gerados'
+diretorio_script = os.path.dirname(os.path.abspath(__file__)) #Indetifica o diretório para referenciar o caminho relativo do arquivo CSV ("Provavel solução para não está entrando no os.walk()")
+pasta_csv = os.path.join(diretorio_script, '..', 'dados_entrada_gerados')
+
 
 def heapify(arr, n, i):
     largest = i  
