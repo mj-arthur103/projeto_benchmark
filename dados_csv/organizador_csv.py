@@ -64,7 +64,7 @@ def consolidar_dados_perf(pasta_origem, arquivo_saida):
             print(f"[OK] Processado: {nome_arquivo}")
             
         except Exception as e:
-            print(f"[ERRO] Falha ao ler o arquivo {nome_arquivo}: {e}")
+            print(f"Falha ao ler o arquivo {nome_arquivo}: {e}")
 
     
     df = pd.DataFrame(dados_consolidados)
@@ -75,8 +75,8 @@ def consolidar_dados_perf(pasta_origem, arquivo_saida):
     
     df.to_csv(arquivo_saida, index=False, sep=';', decimal=',')
     
-    print(f"\n✅ Finalizado! {len(dados_consolidados)} arquivos foram unidos com sucesso.")
-    print(f"📁 Resultado salvo em: {arquivo_saida}")
+    print(f"\n{len(dados_consolidados)}")
+    print(f"{arquivo_saida}")
 
 pasta_dos_arquivos = 'C:\\Users\\arthu\\OneDrive\\Área de Trabalho\\PROGRAMAS\\Python\\projeto_benchmark\\dados_csv\\selection_v2\\50000' 
 
